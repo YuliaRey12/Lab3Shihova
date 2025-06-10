@@ -17,9 +17,30 @@ class MainActivity : AppCompatActivity() {
 
         reverseButton.setOnClickListener {
             val original = inputText.text.toString()
+
+            if (original.isEmpty()) {
+                resultText.text = "Введите текст!"
+                return@setOnClickListener
+            }
+
             val reversed = reverseString(original)
             resultText.text = reversed
         }
     }
 
+    private fun reverseString(input: String): String {
+        val chars = input.toCharArray()
+        var left = 0
+        var right = chars.size - 1
+
+        while (left < right) {
+            val temp = chars[left]
+            chars[left] = chars[right]
+            chars[right] = temp
+            left++
+            right--
+        }
+
+        return String(chars)
+    }
 }
