@@ -15,5 +15,11 @@ class MainActivity : AppCompatActivity() {
         val reverseButton = findViewById<Button>(R.id.reverseButton)
         val resultText = findViewById<TextView>(R.id.resultText)
 
+        reverseButton.setOnClickListener {
+            val original = inputText.text.toString()
+            val reversed = reverseString(original)
+            resultText.text = reversed
+        }
     }
+
 }
